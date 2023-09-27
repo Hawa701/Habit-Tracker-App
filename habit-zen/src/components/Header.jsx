@@ -8,7 +8,6 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import LeftSideBar from "../components/LeftSidebar";
-import AuthModal from "../components/AuthModal";
 import HabitContext from "../context/HabitContext";
 import { SelfImprovement } from "@mui/icons-material";
 
@@ -21,7 +20,7 @@ const styledLogo = {
 };
 
 const Header = () => {
-  const { user } = useContext(HabitContext);
+  const { user, theme } = useContext(HabitContext);
 
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
 
@@ -29,7 +28,7 @@ const Header = () => {
     <Box>
       <AppBar
         position="static"
-        // sx={{ backgroundColor: theme.palette.primary.main }}
+        sx={{ backgroundColor: theme.palette.primary.main }}
       >
         <Toolbar>
           {/* Menu Icon */}
@@ -38,7 +37,13 @@ const Header = () => {
           {/* Message */}
           <Typography flexGrow={1}>
             {!user ? (
-              <Typography variant="h1" fontSize="1.8rem" sx={styledLogo}>
+              <Typography
+                // variant="h1"
+                fontSize="1.8rem"
+                fontWeight="bold"
+                fontFamily="Montserrat"
+                sx={styledLogo}
+              >
                 HabitZen
                 <SelfImprovement fontSize="large" />
               </Typography>
@@ -48,7 +53,7 @@ const Header = () => {
           </Typography>
 
           {/* Button */}
-          {!user ? <AuthModal /> : <Avatar />}
+          {user ? <Avatar /> : null}
         </Toolbar>
       </AppBar>
     </Box>

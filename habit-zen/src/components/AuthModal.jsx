@@ -36,12 +36,8 @@ export default function AuthModal() {
 
   return (
     <div>
-      <Button
-        // sx={{ backgroundColor: theme.palette.secondary.main }}
-        variant="contained"
-        onClick={handleOpen}
-      >
-        Login
+      <Button variant="contained" onClick={handleOpen}>
+        Get Started
       </Button>
       <Modal open={open} onClose={handleClose}>
         <Box sx={style}>

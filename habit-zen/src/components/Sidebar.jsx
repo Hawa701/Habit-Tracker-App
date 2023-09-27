@@ -1,14 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import SidebarList from "./SidebarList";
-import {
-  Divider,
-  List,
-  Stack,
-  Typography,
-  createTheme,
-  useMediaQuery,
-} from "@mui/material";
+import { Divider, List, Stack, Typography, useMediaQuery } from "@mui/material";
 import {
   Add,
   Dashboard,

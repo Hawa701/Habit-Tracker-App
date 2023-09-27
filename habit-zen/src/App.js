@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
-import { Stack, ThemeProvider, createTheme, CssBaseline } from "@mui/material";
+import { Stack, ThemeProvider, CssBaseline } from "@mui/material";
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 import LandingPage from "./pages/LandingPage";
@@ -9,6 +9,7 @@ import AddHabitPage from "./pages/AddHabitPage";
 import ManageHabitPage from "./pages/ManageHabitPage";
 import SettingPage from "./pages/SettingPage";
 import MissingPage from "./pages/MissingPage";
+import Footer from "./components/Footer";
 import HabitContext from "./context/HabitContext";
 
 function App() {
@@ -24,7 +25,6 @@ function App() {
           <Stack flexGrow={1}>
             <Header />
             <Routes>
-              {/* <Route exact path="/" element={<LandingPage />} /> */}
               <Route path="/dashboard" element={<DashboardPage />} />
               <Route path="/add" element={<AddHabitPage />} />
               <Route path="/manage/:id" element={<ManageHabitPage />} />
@@ -34,9 +34,10 @@ function App() {
           </Stack>
         </Stack>
       ) : (
-        <Stack>
+        <Stack flexGrow={1}>
           <Header />
           <LandingPage />
+          <Footer />
         </Stack>
       )}
     </ThemeProvider>
