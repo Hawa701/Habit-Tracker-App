@@ -18,6 +18,7 @@ import {
   SelfImprovement,
   Settings,
 } from "@mui/icons-material";
+import HabitContext from "../context/HabitContext";
 
 const styledLogo = {
   display: "flex",
@@ -28,6 +29,7 @@ const styledLogo = {
 };
 
 export default function TemporaryDrawer() {
+  const { theme } = React.useContext(HabitContext);
   const [state, setState] = React.useState({
     left: false,
   });
@@ -52,18 +54,17 @@ export default function TemporaryDrawer() {
     >
       <List>
         <List>
-          <Link to="/">
-            <Typography
-              variant="h1"
-              fontSize="1.8rem"
-              gap={1}
-              mb={2}
-              sx={styledLogo}
-            >
-              HabitZen
-              <SelfImprovement fontSize="large" />
-            </Typography>
-          </Link>
+          <Typography
+            variant="h1"
+            fontSize="1.8rem"
+            gap={1}
+            mb={2}
+            sx={styledLogo}
+            color={theme.palette.primary.main}
+          >
+            HabitZen
+            <SelfImprovement fontSize="large" />
+          </Typography>
           <Divider />
 
           <Link to="/dashboard">

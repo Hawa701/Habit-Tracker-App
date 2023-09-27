@@ -1,9 +1,28 @@
-import React, { createContext, useState, useEffect } from "react";
+import { createTheme } from "@mui/material";
+import React, { createContext, useState } from "react";
 
 const HabitContext = createContext();
 
-export const CryptoProvider = ({ children }) => {
-  return <HabitContext.Provider value={{}}>{children}</HabitContext.Provider>;
+export const HabitProvider = ({ children }) => {
+  const [mode, setMode] = useState("light");
+  const [user, setUser] = useState(true);
+
+  const theme = createTheme({
+    palette: {
+      mode: mode,
+    },
+  });
+
+  return (
+    <HabitContext.Provider
+      value={{
+        theme,
+        user,
+      }}
+    >
+      {children}
+    </HabitContext.Provider>
+  );
 };
 
 export default HabitContext;

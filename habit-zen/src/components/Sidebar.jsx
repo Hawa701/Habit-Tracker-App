@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import SidebarList from "./SidebarList";
 import {
@@ -17,6 +17,7 @@ import {
   SelfImprovement,
   Settings,
 } from "@mui/icons-material";
+import HabitContext from "../context/HabitContext";
 
 const styledStack = {
   width: {
@@ -41,25 +42,29 @@ const styledLogo = {
 };
 
 const Sidebar = () => {
-  const theme = createTheme();
+  const { theme } = useContext(HabitContext);
 
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("md"));
 
   return (
     <Stack direction="column" sx={styledStack}>
       {/* Logo */}
-      <Link to="/">
-        {isSmallScreen ? (
-          <Typography variant="h5" sx={styledLogo}>
-            <SelfImprovement fontSize="large" />
-          </Typography>
-        ) : (
-          <Typography variant="h1" fontSize="1.8rem" gap={1} sx={styledLogo}>
-            HabitZen
-            <SelfImprovement fontSize="large" />
-          </Typography>
-        )}
-      </Link>
+      {isSmallScreen ? (
+        <Typography variant="h5" sx={styledLogo}>
+          <SelfImprovement fontSize="large" />
+        </Typography>
+      ) : (
+        <Typography
+          variant="h1"
+          fontSize="1.8rem"
+          gap={1}
+          sx={styledLogo}
+          color={theme.palette.primary.main}
+        >
+          HabitZen
+          <SelfImprovement fontSize="large" />
+        </Typography>
+      )}
       <Divider />
 
       {/* List 1 */}

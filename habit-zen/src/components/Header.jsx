@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   AppBar,
+  Avatar,
   Box,
   Toolbar,
   Typography,
-  createTheme,
   useMediaQuery,
 } from "@mui/material";
 import LeftSideBar from "../components/LeftSidebar";
 import AuthModal from "../components/AuthModal";
+import HabitContext from "../context/HabitContext";
+import { SelfImprovement } from "@mui/icons-material";
+
+const styledLogo = {
+  display: "flex",
+  justifyContent: "start",
+  alignItems: "center",
+  height: "4rem",
+  gap: "8px",
+};
 
 const Header = () => {
-  // const theme = createTheme();
+  const { user } = useContext(HabitContext);
 
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
 
@@ -23,15 +33,22 @@ const Header = () => {
       >
         <Toolbar>
           {/* Menu Icon */}
-          {isSmallScreen ? <LeftSideBar /> : null}
+          {user && isSmallScreen ? <LeftSideBar /> : null}
 
           {/* Message */}
           <Typography flexGrow={1}>
-            {isSmallScreen ? "" : "Welcome Hawariaw!"}
+            {!user ? (
+              <Typography variant="h1" fontSize="1.8rem" sx={styledLogo}>
+                HabitZen
+                <SelfImprovement fontSize="large" />
+              </Typography>
+            ) : (
+              ""
+            )}
           </Typography>
 
           {/* Button */}
-          <AuthModal />
+          {!user ? <AuthModal /> : <Avatar />}
         </Toolbar>
       </AppBar>
     </Box>

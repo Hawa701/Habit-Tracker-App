@@ -9,33 +9,36 @@ import AddHabitPage from "./pages/AddHabitPage";
 import ManageHabitPage from "./pages/ManageHabitPage";
 import SettingPage from "./pages/SettingPage";
 import MissingPage from "./pages/MissingPage";
+import HabitContext from "./context/HabitContext";
 
 function App() {
-  const [mode, setMode] = useState("light");
-
-  const theme = createTheme({
-    palette: {
-      mode: mode,
-    },
-  });
+  const { user, theme } = useContext(HabitContext);
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Stack direction="row">
-        <Sidebar />
-        <Stack flexGrow={1}>
-          <Header />
-          <Routes>
-            <Route exact path="/" element={<LandingPage />} />
-            <Route path="/dashboard" element={<DashboardPage />} />
-            <Route path="/add" element={<AddHabitPage />} />
-            <Route path="/manage/:id" element={<ManageHabitPage />} />
-            <Route path="/settings" element={<SettingPage />} />
-            <Route path="*" element={<MissingPage />} />
-          </Routes>
+
+      {user ? (
+        <Stack direction="row">
+          <Sidebar />
+          <Stack flexGrow={1}>
+            <Header />
+            <Routes>
+              {/* <Route exact path="/" element={<LandingPage />} /> */}
+              <Route path="/dashboard" element={<DashboardPage />} />
+              <Route path="/add" element={<AddHabitPage />} />
+              <Route path="/manage/:id" element={<ManageHabitPage />} />
+              <Route path="/settings" element={<SettingPage />} />
+              <Route path="*" element={<MissingPage />} />
+            </Routes>
+          </Stack>
         </Stack>
-      </Stack>
+      ) : (
+        <Stack>
+          <Header />
+          <LandingPage />
+        </Stack>
+      )}
     </ThemeProvider>
   );
 }
