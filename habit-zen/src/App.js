@@ -36,7 +36,11 @@ function App() {
       ) : (
         <Stack flexGrow={1}>
           <Header />
-          <LandingPage />
+          <Routes>
+            {/* <LandingPage /> */}
+            <Route exact path="/" element={<LandingPage />} />
+            <Route path="*" element={<MissingPage />} />
+          </Routes>
           <Footer />
         </Stack>
       )}

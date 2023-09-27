@@ -5,7 +5,7 @@ const HabitContext = createContext();
 
 export const HabitProvider = ({ children }) => {
   const [mode, setMode] = useState("light");
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(true);
 
   const theme = createTheme({
     palette: {
