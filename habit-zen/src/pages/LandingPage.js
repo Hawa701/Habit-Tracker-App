@@ -76,8 +76,13 @@ const LandingPage = () => {
         </Box>
       </Box>
 
-      <Box display="flex" flexDirection="column" alignItems="center">
-        <Typography variant="h6" fontFamily="Montserrat" fontWeight="bold">
+      <Box display="flex" flexDirection="column">
+        <Typography
+          variant="h6"
+          textAlign="center"
+          fontFamily="Montserrat"
+          fontWeight="bold"
+        >
           Famous Quotes
         </Typography>
         <AliceCarousel autoPlay autoPlayInterval={7000}>
