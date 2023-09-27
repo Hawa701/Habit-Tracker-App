@@ -4,7 +4,7 @@ import React, { createContext, useState } from "react";
 const HabitContext = createContext();
 
 export const HabitProvider = ({ children }) => {
-  const [mode, setMode] = useState("dark");
+  const [mode, setMode] = useState("light");
   const [user, setUser] = useState(false);
 
   const theme = createTheme({

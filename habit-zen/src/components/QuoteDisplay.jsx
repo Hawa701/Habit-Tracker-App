@@ -14,7 +14,7 @@ const QuoteDisplay = ({ index, quote, speaker }) => {
         variant="body1"
         align="center"
         fontFamily="Montserrat"
-        fontWeight="bold"
+        fontWeight="600"
         gutterBottom
       >
         "{quote}"
