@@ -9,7 +9,7 @@ const CheckBoxes = ({ label }) => {
   return (
     <FormControlLabel
       value="bottom"
-      control={<Checkbox />}
+      control={<Checkbox color="secondary" />}
       label={label}
       labelPlacement="bottom"
       sx={styledCheckbox}

@@ -11,7 +11,18 @@ export const HabitProvider = ({ children }) => {
     palette: {
       mode: mode,
       primary: {
-        main: "#F8BD7F",
+        // main: "#F8BD7F",
+        main: "#059862",
+      },
+      secondary: {
+        main: "#000000",
+      },
+      background: {
+        default: "#f9f9f9",
+        main: "#ffffff",
+      },
+      action: {
+        hover: "#58BA96",
       },
     },
   });

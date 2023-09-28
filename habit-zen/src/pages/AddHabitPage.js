@@ -1,6 +1,7 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import CheckBoxes from "../components/CheckBoxes";
+import HabitContext from "../context/HabitContext";
 
 const boxStyle = {
   display: "flex",
@@ -31,12 +32,16 @@ const box3Style = {
 const AddHabitPage = () => {
   const [habit, setHabit] = useState("");
   const [description, setDescription] = useState("");
+  const { theme } = useContext(HabitContext);
 
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   return (
     <Box sx={boxStyle}>
-      <Box sx={box2Style}>
+      <Box
+        sx={box2Style}
+        style={{ backgroundColor: theme.palette.background.main }}
+      >
         <Typography variant="h5" mb={2}>
           Create new habit
         </Typography>

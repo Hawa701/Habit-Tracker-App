@@ -18,7 +18,10 @@ const MissingPage = () => {
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
 
   return (
-    <Box sx={boxStyle}>
+    <Box
+      sx={boxStyle}
+      style={{ backgroundColor: theme.palette.background.default }}
+    >
       <script
         src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
         type="module"
@@ -35,7 +38,11 @@ const MissingPage = () => {
         loop
         autoplay
       ></dotlottie-player>
-      <Typography variant={isSmallScreen ? "h4" : "h3"} mb={3}>
+      <Typography
+        variant={isSmallScreen ? "h4" : "h3"}
+        fontWeight="bold"
+        mb={3}
+      >
         Page Not Found!
       </Typography>
       {user ? (

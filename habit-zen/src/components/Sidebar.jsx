@@ -25,7 +25,6 @@ const styledStack = {
   },
   borderRight: "1px solid lightgray",
 };
-
 const styledLogo = {
   display: "flex",
   justifyContent: "center",
@@ -40,7 +39,11 @@ const Sidebar = () => {
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("md"));
 
   return (
-    <Stack direction="column" sx={styledStack}>
+    <Stack
+      direction="column"
+      sx={styledStack}
+      style={{ backgroundColor: theme.palette.background.main }}
+    >
       {/* Logo */}
       {isSmallScreen ? (
         <Typography variant="h5" sx={styledLogo}>
