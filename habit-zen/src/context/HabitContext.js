@@ -21,6 +21,8 @@ export const HabitProvider = ({ children }) => {
       value={{
         theme,
         user,
+        setUser,
+        setMode,
       }}
     >
       {children}
