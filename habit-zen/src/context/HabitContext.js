@@ -6,13 +6,14 @@ const HabitContext = createContext();
 export const HabitProvider = ({ children }) => {
   const [mode, setMode] = useState("light");
   const [user, setUser] = useState(true);
+  const [primaryColor, setPrimaryColor] = useState("#FFBF00");
 
   const theme = createTheme({
     palette: {
       mode: mode,
       primary: {
         // main: "#F8BD7F",
-        main: "#059862",
+        main: primaryColor,
       },
       secondary: {
         main: "#000000",
@@ -33,7 +34,10 @@ export const HabitProvider = ({ children }) => {
         theme,
         user,
         setUser,
+        mode,
         setMode,
+        primaryColor,
+        setPrimaryColor,
       }}
     >
       {children}

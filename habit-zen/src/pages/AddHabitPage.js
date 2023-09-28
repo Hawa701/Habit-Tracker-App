@@ -63,10 +63,10 @@ const AddHabitPage = () => {
           onChange={(e) => setDescription(e.target.value)}
         />
 
-        <Typography alignSelf="start" ml={1} variant="subtitle1">
+        <Typography alignSelf="start" ml={1} mt={1} variant="subtitle1">
           Frequency
         </Typography>
-        <Box sx={box3Style}>
+        <Box sx={box3Style} mt={-2}>
           {days.map((day) => {
             return <CheckBoxes label={day} />;
           })}

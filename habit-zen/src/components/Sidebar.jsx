@@ -70,7 +70,7 @@ const Sidebar = () => {
             <SidebarList listIcon={<Dashboard />} listText="Dashboard" />
           </Link>
           <Link to="/add">
-            <SidebarList listIcon={<Add />} listText="Add" />
+            <SidebarList listIcon={<Add />} listText="Add Habit" />
           </Link>
           <Link to="/manage/1">
             <SidebarList

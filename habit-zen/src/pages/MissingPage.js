@@ -22,13 +22,8 @@ const MissingPage = () => {
       sx={boxStyle}
       style={{ backgroundColor: theme.palette.background.default }}
     >
-      <script
-        src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
-        type="module"
-      ></script>
-
       <dotlottie-player
-        src="https://lottie.host/796301e2-1ded-405c-8517-cbf20c5bbdd4/mqXKsEt9Pr.json"
+        src="https://lottie.host/75e8a840-7599-484e-b574-6c0606951b59/3lhv780MUv.json"
         background="transparent"
         speed="1"
         style={{
@@ -38,6 +33,7 @@ const MissingPage = () => {
         loop
         autoplay
       ></dotlottie-player>
+
       <Typography
         variant={isSmallScreen ? "h4" : "h3"}
         fontWeight="bold"
