@@ -37,7 +37,10 @@ const SettingPage = () => {
     <Box sx={boxStyle}>
       <Box
         sx={box2Style}
-        style={{ backgroundColor: theme.palette.background.main }}
+        style={{
+          backgroundColor: theme.palette.background.main,
+          boxShadow: `0px 6px 15px 0px ${theme.palette.shadow.default}`,
+        }}
       >
         <Tabs
           sx={tabStyle}

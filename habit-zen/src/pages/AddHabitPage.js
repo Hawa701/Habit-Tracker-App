@@ -18,7 +18,6 @@ const box2Style = {
   padding: "2rem 1rem",
   gap: "20px",
   borderRadius: "4px",
-  boxShadow: "0px 6px 15px 0px #d9d9d9",
 };
 const box3Style = {
   flexWrap: "nowrap",
@@ -40,7 +39,10 @@ const AddHabitPage = () => {
     <Box sx={boxStyle}>
       <Box
         sx={box2Style}
-        style={{ backgroundColor: theme.palette.background.main }}
+        style={{
+          backgroundColor: theme.palette.background.main,
+          boxShadow: `0px 6px 15px 0px ${theme.palette.shadow.default}`,
+        }}
       >
         <Typography variant="h5" mb={2}>
           Create new habit
@@ -67,8 +69,8 @@ const AddHabitPage = () => {
           Frequency
         </Typography>
         <Box sx={box3Style} mt={-2}>
-          {days.map((day) => {
-            return <CheckBoxes label={day} />;
+          {days.map((day, index) => {
+            return <CheckBoxes key={index} label={day} />;
           })}
         </Box>
         <Button variant="contained">Create Habit</Button>

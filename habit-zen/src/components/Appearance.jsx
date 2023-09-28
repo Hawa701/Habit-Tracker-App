@@ -50,9 +50,10 @@ const Appearance = () => {
         >
           <MenuItem value="#FFBF00">Amber</MenuItem>
           <MenuItem value="#059862">Green</MenuItem>
-          <MenuItem value="#0067B6">Blue</MenuItem>
+          <MenuItem value="#2986CC">Blue</MenuItem>
           <MenuItem value="#A20000">Red</MenuItem>
-          <MenuItem value="#5E3F2A">Brown</MenuItem>
+          <MenuItem value="#C90076">Pink</MenuItem>
+          <MenuItem value="#6A329F">Purple</MenuItem>
         </Select>
       </Box>
 
@@ -61,7 +62,11 @@ const Appearance = () => {
         <Typography flexGrow={1} ml="10px">
           Dark Mode
         </Typography>
-        <Checkbox color="secondary" onChange={handleModeChange} />
+        <Checkbox
+          color="secondary"
+          onChange={handleModeChange}
+          checked={mode === "dark" ? true : false}
+        />
       </Box>
 
       <Divider />

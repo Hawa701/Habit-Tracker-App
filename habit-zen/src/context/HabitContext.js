@@ -1,5 +1,6 @@
-import { createTheme } from "@mui/material";
 import React, { createContext, useState } from "react";
+import { createTheme } from "@mui/material";
+import { lighten } from "polished";
 
 const HabitContext = createContext();
 
@@ -8,11 +9,13 @@ export const HabitProvider = ({ children }) => {
   const [user, setUser] = useState(true);
   const [primaryColor, setPrimaryColor] = useState("#FFBF00");
 
-  const theme = createTheme({
+  const hoverColor = lighten(0.2, primaryColor);
+
+  let theme = "";
+  const lightTheme = createTheme({
     palette: {
-      mode: mode,
+      mode: "light",
       primary: {
-        // main: "#F8BD7F",
         main: primaryColor,
       },
       secondary: {
@@ -22,11 +25,39 @@ export const HabitProvider = ({ children }) => {
         default: "#f9f9f9",
         main: "#ffffff",
       },
+      shadow: {
+        default: "#d9d9d9",
+      },
       action: {
-        hover: "#58BA96",
+        hover: hoverColor,
       },
     },
   });
+  const darkTheme = createTheme({
+    palette: {
+      mode: "dark",
+      primary: {
+        main: primaryColor,
+      },
+      secondary: {
+        main: "#ffffff",
+      },
+      background: {
+        default: "#303030",
+        main: "#000000",
+      },
+      shadow: {
+        default: "#202020",
+      },
+      action: {
+        hover: hoverColor,
+      },
+    },
+  });
+
+  {
+    mode === "light" ? (theme = lightTheme) : (theme = darkTheme);
+  }
 
   return (
     <HabitContext.Provider
