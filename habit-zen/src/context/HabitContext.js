@@ -5,8 +5,8 @@ import { lighten } from "polished";
 const HabitContext = createContext();
 
 export const HabitProvider = ({ children }) => {
-  const [mode, setMode] = useState("light");
   const [user, setUser] = useState(true);
+  const [mode, setMode] = useState("light");
   const [primaryColor, setPrimaryColor] = useState("#FFBF00");
 
   const hoverColor = lighten(0.2, primaryColor);
@@ -43,11 +43,11 @@ export const HabitProvider = ({ children }) => {
         main: "#ffffff",
       },
       background: {
-        default: "#303030",
-        main: "#000000",
+        default: "#252526",
+        main: "#1e1e1e",
       },
       shadow: {
-        default: "#202020",
+        default: "#1e1e1e",
       },
       action: {
         hover: hoverColor,
